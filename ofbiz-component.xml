@@ -33,7 +33,7 @@ under the License.
         title="ActiveMQ Integration"
         server="default-server"
         location="webapp/admin"
-        mount-point="/admin"
+        mount-point="/mqadmin"
         base-permission="OFBTOOLS"
         menu-name="secondary"
         app-bar-display="false" />
