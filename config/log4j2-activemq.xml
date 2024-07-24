@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Specify the refresh internal in seconds. -->
+<Configuration monitorInterval="5" packages="org.apache.logging.log4j">
+    <Appenders>
+        <RollingFile name="activemqLogfile" fileName="runtime/logs/activemq/activemq.log" append="true"
+                     filePattern="runtime/logs/activemq/activemq-%d{yyyy-MM-dd-HH}-%i.log">
+            <PatternLayout pattern="%date{DEFAULT} |%-20.20thread |%-30.30logger{1}|%level{length=1}|%-4L| %message%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <AsyncLogger name="org.apache.activemq.web.handler" level="info" additivity="false" includeLocation="true">
+            <AppenderRef ref="activemqLogfile"/>
+            <AppenderRef ref="stdout"/>
+        </AsyncLogger>
+    </Loggers>
+</Configuration>

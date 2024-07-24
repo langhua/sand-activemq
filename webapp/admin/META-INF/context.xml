@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <JarScanner className="langhua.activemq.embed.SandJarScanner">
+        <JarScanFilter className="langhua.activemq.embed.SandJarScanFilter" defaultPluggabilityScan="false"
+                       pluggabilityScan="spring-*.jar,
+                                         activemq-*.jar,
+                                         ofbiz.jar"
+                       defaultTldScan="true" tldScan=""/>
+    </JarScanner>
+</Context>
