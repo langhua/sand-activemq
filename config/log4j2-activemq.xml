@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Specify the refresh internal in seconds. -->
-<Configuration monitorInterval="5" packages="org.apache.logging.log4j">
+<Configuration monitorInterval="60">
     <Appenders>
-        <RollingFile name="activemqLogfile" fileName="runtime/logs/activemq/activemq.log" append="true"
+        <RollingFile name="activemq" fileName="runtime/logs/activemq/activemq.log" append="true"
                      filePattern="runtime/logs/activemq/activemq-%d{yyyy-MM-dd-HH}-%i.log">
-            <PatternLayout pattern="%date{DEFAULT} |%-20.20thread |%-30.30logger{1}|%level{length=1}|%-4L| %message%n"/>
+            <PatternLayout pattern="%d [%-15.15t] %-5p %-30.30c{1} - %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="10 MB"/>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
             </Policies>
+            <DefaultRolloverStrategy max="10"/>
         </RollingFile>
     </Appenders>
     <Loggers>
-        <AsyncLogger name="org.apache.activemq.web.handler" level="info" additivity="false" includeLocation="true">
-            <AppenderRef ref="activemqLogfile"/>
-            <AppenderRef ref="stdout"/>
+        <AsyncLogger name="org.apache.activemq" level="info">
+            <AppenderRef ref="activemq"/>
+        </AsyncLogger>
+        <AsyncLogger name="org.apache.activemq.spring" level="warn">
+            <AppenderRef ref="activemq"/>
+        </AsyncLogger>
+        <AsyncLogger name="org.springframework" level="warn">
+            <AppenderRef ref="activemq"/>
         </AsyncLogger>
     </Loggers>
 </Configuration>

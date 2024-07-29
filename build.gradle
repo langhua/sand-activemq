@@ -66,8 +66,11 @@ dependencies {
         force true
     }
 
+    pluginLibsRuntime ('org.slf4j:slf4j-api:1.7.36') {
+        force true
+    }
+
     pluginLibsRuntime 'com.lmax:disruptor:3.4.2',
-            'org.slf4j:slf4j-simple:2.0.0',
             'org.apache.activemq:activemq-spring:' + activemqVersion,
             'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:1.2.5',
             'org.apache.taglibs:taglibs-standard-impl:1.2.5'
