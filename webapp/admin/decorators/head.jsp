@@ -31,6 +31,8 @@
         <script type='text/javascript' src='${pageContext.request.contextPath}/js/css.js'></script>
         <script type='text/javascript' src='${pageContext.request.contextPath}/js/standardista-table-sorting.js'></script>
         <script type='text/javascript' src='${pageContext.request.contextPath}/js/prettify.js'></script>
-        <script>addEvent(window, 'load', prettyPrint)</script>
+        <!-- <script>addEvent(window, 'load', prettyPrint)</script> -->
+        <!-- ref: https://github.com/jpamental/variable-fonts/blob/9a10141ad8f5cb2ea9bfa705c72ea73d6d8232a0/assets/js/google-code-prettify/README.md?plain=1#L176 -->
+        <script>addEvent(window, 'load', function(event) {prettyPrint();})</script>
     </c:if>
 

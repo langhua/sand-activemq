@@ -3,8 +3,7 @@
     <JarScanner className="langhua.activemq.embed.SandJarScanner">
         <JarScanFilter className="langhua.activemq.embed.SandJarScanFilter" defaultPluggabilityScan="false"
                        pluggabilityScan="spring-*.jar,
-                                         activemq-*.jar,
-                                         ofbiz.jar"
+                                         activemq-*.jar"
                        defaultTldScan="true" tldScan=""/>
     </JarScanner>
 </Context>
